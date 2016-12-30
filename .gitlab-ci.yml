@@ -1,0 +1,6 @@
+build:
+  type: build
+  script:
+  - mvn package
+  - mvn sonar:sonar
+  

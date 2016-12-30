@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dossp.crp.sample.mapper.SampleMapper">
+
+	<resultMap id="sampleMap" type="com.dossp.crp.sample.model.SampleModel">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+ 	<select id="findSampleList" parameterType="com.dossp.crp.sample.vo.SampleVo" resultMap="sampleMap">
+		SELECT
+			t.*
+		FROM
+			sample t
+		<where>
+			<if test="name != null and name != ''">
+				AND t.name LIKE CONCAT('%', #{name}, '%')
+			</if>
+		</where> 
+	</select>
+	
+</mapper>
