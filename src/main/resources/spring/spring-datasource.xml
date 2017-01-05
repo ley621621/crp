@@ -50,6 +50,7 @@
             <list>
                 <ref bean="stat-filter" />
                 <ref bean="log-filter" />
+                <ref bean="wall-filter" />
             </list>
         </property>
 	</bean>
@@ -62,6 +63,13 @@
     <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
         <property name="resultSetLogEnabled" value="true" />
         <property name="statementExecutableSqlLogEnable" value="true" />
+    </bean>
+    <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="dbType" value="mysql" />
+        <property name="config" ref="wall-filter-config" />
+    </bean>
+    <bean id="wall-filter-config" class="com.alibaba.druid.wall.WallConfig" init-method="init">
+        <property name="dir" value="META-INF/druid/wall/mysql" />
     </bean>
     
 </beans>
