@@ -110,6 +110,30 @@ public final class DateUtil {
 	public static String currentYear() {
 		return String.valueOf(DateTime.now().getYear());
 	}
+	/**
+	 * 获取当前月
+	 * @return
+	 */
+	public static String currentMonth() {
+		return String.valueOf(DateTime.now().getMonthOfYear());
+	}
+	/**
+	 * 获取下一个月
+	 * @param formatStr
+	 * @return
+	 */
+	public static String nextMonth(String formatStr){
+		DateTime date = DateTime.now().plusMonths(1);
+		return formateDate(date.toDate(), formatStr);
+	}
+	
+	/**
+	 * 获取当前日
+	 * @return
+	 */
+	public static String currentDay() {
+		return String.valueOf(DateTime.now().getDayOfMonth());
+	}
 	
 	/**
 	 * 获取上一年
@@ -125,6 +149,54 @@ public final class DateUtil {
 	 */
 	public static String nextYear() {
 		return String.valueOf(DateTime.now().plusYears(1).getYear());
+	}
+	
+	/**
+	 * 获取指定天的前一天
+	 * @param dateStr 日期字符串
+	 * @param formatStr 传入的日期格式
+	 * @param formatStrResult 返回的日期格式
+	 * @return
+	 */
+	public static String prevDay(String dateStr, String formatStr, String formatStrResult) {
+		
+		DateTimeFormatter format = DateTimeFormat.forPattern(formatStr);
+		DateTime date = DateTime.parse(dateStr, format).minusDays(1);
+		return formateDate(date.toDate(), formatStrResult);
+	}
+	
+	/**
+	 * 获取指定天的下一个月
+	 * @param dateStr 日期字符串
+	 * @param formatStr 传入的日期格式
+	 * @param formatStrResult 返回的日期格式
+	 * @return
+	 */
+	public static String dayNextMonth(String dateStr, String formatStr, String formatStrResult) {
+		
+		DateTimeFormatter format = DateTimeFormat.forPattern(formatStr);
+		DateTime date = DateTime.parse(dateStr, format).plusMonths(1);
+		return formateDate(date.toDate(), formatStrResult);
+	}
+	
+	/**
+	 * 获取指定天的下一个月
+	 * @param dateStr 日期字符串
+	 * @param formatStr 传入的日期格式
+	 * @param formatStrResult 返回的日期格式
+	 * @return
+	 */
+	public static String dayMonth(String dateStr, String formatStr, String formatStrResult) {
+		
+		DateTimeFormatter format = DateTimeFormat.forPattern(formatStr);
+		DateTime date = DateTime.parse(dateStr, format);
+		return formateDate(date.toDate(), formatStrResult);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(prevDay("2016-1-1", "yyyy-MM-dd", "yyyy-MM"));
+		System.out.println(dayNextMonth("2015-12-21", "yyyy-MM-dd", "yyyy-MM"));
+		System.out.println(nextMonth("yyyy-MM-dd"));
 	}
 
 }

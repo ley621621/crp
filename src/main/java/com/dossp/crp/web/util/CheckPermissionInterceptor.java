@@ -104,7 +104,7 @@ public class CheckPermissionInterceptor implements HandlerInterceptor {
 		}
 		
 		if (user == null) {
-			return true;
+			return false;
 		} else {
 			return true;
 		}
@@ -115,6 +115,7 @@ public class CheckPermissionInterceptor implements HandlerInterceptor {
 		List<String> list = new ArrayList<String>();
 		
 		list.add("/");
+		list.add("/check_login");
 		
 		return list;
 	}

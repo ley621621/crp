@@ -8,59 +8,125 @@
  * @Package com.dossp.cris.web.util
  */
 
-
 package com.dossp.crp.web.util;
 
+import java.util.List;
+
 import com.dossp.crp.common.model.BaseModel;
+import com.dossp.crp.func.menu.model.MenuModel;
 
 
 /**
- * @author yufenghui
- * </p>
- * 日期：2016年10月21日 下午5:34:46
- * </p>
- * 描述：
- *
+ * @author yufenghui </p> 日期：2016年10月21日 下午5:34:46 </p> 描述：
+ * 
  */
 
 public class UserSessionModel extends BaseModel {
 
-	/** 
+	/**
 	 * 
 	 * @Fields serialVersionUID
-	 */ 
+	 */
 	private static final long serialVersionUID = -3930443968811897988L;
 
-	private Long id;
-	
-	private String username;
+	private Long userId;
+	private String userNa;
+
+	private Long corpId = 0L;
+	private String corpNa;
+
+	private String account;
+
+	private List<MenuModel> menus;
 
 	/**
-	 * @return the id
+	 * @return the userId
 	 */
-	public Long getId() {
-		return id;
+	public Long getUserId() {
+		return userId;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param userId
+	 *            the userId to set
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	/**
-	 * @return the username
+	 * @return the corpId
 	 */
-	public String getUsername() {
-		return username;
+	public Long getCorpId() {
+		return corpId;
 	}
 
 	/**
-	 * @param username the username to set
+	 * @param corpId
+	 *            the corpId to set
 	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCorpId(Long corpId) {
+		this.corpId = corpId;
 	}
-	
+
+	/**
+	 * @return the userNa
+	 */
+	public String getUserNa() {
+		return userNa;
+	}
+
+	/**
+	 * @param userNa
+	 *            the userNa to set
+	 */
+	public void setUserNa(String userNa) {
+		this.userNa = userNa;
+	}
+
+	/**
+	 * @return the corpNa
+	 */
+	public String getCorpNa() {
+		return corpNa;
+	}
+
+	/**
+	 * @param corpNa
+	 *            the corpNa to set
+	 */
+	public void setCorpNa(String corpNa) {
+		this.corpNa = corpNa;
+	}
+
+	/**
+	 * @return the account
+	 */
+	public String getAccount() {
+		return account;
+	}
+
+	/**
+	 * @param account
+	 *            the account to set
+	 */
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	/**
+	 * @return the menus
+	 */
+	public List<MenuModel> getMenus() {
+		return menus;
+	}
+
+	/**
+	 * @param menus
+	 *            the menus to set
+	 */
+	public void setMenus(List<MenuModel> menus) {
+		this.menus = menus;
+	}
+
 }

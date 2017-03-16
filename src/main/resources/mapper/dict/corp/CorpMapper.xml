@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dossp.crp.dict.corp.mapper.CorpMapper" >
+
+  <resultMap id="corpMap" type="com.dossp.crp.dict.corp.model.CorpModel" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findCorpNaList" resultMap="corpMap" parameterType="java.lang.String">
+		SELECT
+			NAME
+		FROM
+			dict_corp
+		WHERE
+			id NOT IN(
+				SELECT
+					mm.corp_id
+				FROM
+					main mm
+				WHERE
+					mm.trade_time LIKE CONCAT(#{date},'%')  
+				AND mm.state='1'
+	)
+  </select>
+</mapper>
