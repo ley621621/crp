@@ -101,11 +101,13 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel, Long> implements
 		int flag = userMapper.insert(userModel);
 		result = flag;
 		if(flag > 0){
-			for (String role : roleList) {
-				UserRoleModel userRoleModel = new UserRoleModel();
-				userRoleModel.setUserId(userModel.getId());
-				userRoleModel.setRoleId(Long.parseLong(role));
-				result = userRoleMapper.insert(userRoleModel);
+			if(roleList != null && roleList.length > 0){
+				for (String role : roleList) {
+					UserRoleModel userRoleModel = new UserRoleModel();
+					userRoleModel.setUserId(userModel.getId());
+					userRoleModel.setRoleId(Long.parseLong(role));
+					result = userRoleMapper.insert(userRoleModel);
+				}
 			}
 		}
 		return result;
@@ -157,10 +159,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel, Long> implements
 	public int deleteUser(UserModel userModel) {
 		int result = 0;
 		int ret = userMapper.delete(userModel);
+		result = ret;
 		if(ret > 0){
-			result = ret;
-			int flag = userRoleMapper.deleteByUserId(userModel.getId());
-			result = flag;
+			result = userRoleMapper.deleteByUserId(userModel.getId());
 		}
 		return result;
 	}

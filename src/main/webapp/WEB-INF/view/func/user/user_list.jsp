@@ -297,8 +297,8 @@ label {
 																重置密码
 															</a>
 															&nbsp;
-															<a href="javascript:;" onclick="deleteUser(${user.id})" class="link2 cu" title="删除用户">
-																删除用户
+															<a href="javascript:;" onclick="deleteUser(${user.id})" class="link2 cu" title="删除">
+																删除
 															</a>
 															&nbsp;
 															<a href="javascript:;" onclick="_toUpdateUser('${user.id}');" class="link2 cu" title="编辑">
