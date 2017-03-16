@@ -97,6 +97,26 @@ function resetPwd(id){
 		});
 }
 
+function deleteUser(id){
+	layer.confirm('是否删除用户?', {icon: 3,btn: ['确定', '取消'], title:'提示'}, function(index){
+		var url = '${ctx}/func/user/delete_user';
+		param = {
+			"id":id
+		};
+		$.post(url, param, function(data){
+			data = eval("(" + data + ")");
+			if(data.success) {
+				layer.alert(data.msg, {icon: 6, btn:['确定']}, function(index){
+					layer.close(index);
+					window.location.reload();
+				});
+			} else {
+				layer.alert(data.msg, {icon: 6, btn:['确定']});
+			}
+		});
+		});
+}
+
 
 //更新状态，启用/禁用
 function updateState(state,id){
@@ -275,6 +295,10 @@ label {
 														<td align="center">
 															<a href="javascript:;" onclick="resetPwd(${user.id});" class="link2 cu" title="重置密码">
 																重置密码
+															</a>
+															&nbsp;
+															<a href="javascript:;" onclick="deleteUser(${user.id})" class="link2 cu" title="删除用户">
+																删除用户
 															</a>
 															&nbsp;
 															<a href="javascript:;" onclick="_toUpdateUser('${user.id}');" class="link2 cu" title="编辑">

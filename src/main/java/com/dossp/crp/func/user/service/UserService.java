@@ -52,4 +52,6 @@ public interface UserService extends BaseService<UserModel, Long> {
 	
 	public int resetPwd(UserModel userModel);
 
+	public int deleteUser(UserModel userModel);
+
 }

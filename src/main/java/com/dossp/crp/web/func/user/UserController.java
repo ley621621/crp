@@ -240,4 +240,27 @@ public class UserController {
 		return ret;
 	}
 	
+	/**
+	 * 删除用户
+	 * @param userModel
+	 * @return
+	 */
+	@RequestMapping("delete_user")
+	@ResponseBody
+	public JsonMsg deleteUser(UserModel userModel) {
+		JsonMsg ret = new JsonMsg("操作失败!");
+		try {
+			int flag = userService.deleteUser(userModel);
+			if (flag > 0) {
+				ret.setSuccess(true);
+				ret.setMsg("操作成功!");
+			}
+		} catch (Exception e) {
+			ret.setSuccess(false);
+			ret.setMsg("操作失败!");
+			log.error("操作失败!", e);
+		}
+		return ret;
+	}
+	
 }

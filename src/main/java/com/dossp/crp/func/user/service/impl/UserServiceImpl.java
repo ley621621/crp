@@ -151,5 +151,18 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel, Long> implements
 		int update = this.update(userModel);
 		return update;
 	}
+	
+	@Transactional
+	@Override
+	public int deleteUser(UserModel userModel) {
+		int result = 0;
+		int ret = userMapper.delete(userModel);
+		if(ret > 0){
+			result = ret;
+			int flag = userRoleMapper.deleteByUserId(userModel.getId());
+			result = flag;
+		}
+		return result;
+	}
 
 }
