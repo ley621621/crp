@@ -63,7 +63,7 @@
 				AND a.corp_id = #{corpId}
 			</if>
 			<if test="unitId != null and unitId != ''">
-				AND a.pk_dic_unit = #{unitId}
+				AND a.unit_id = #{unitId}
 			</if>
 			<if test="deptId != null and deptId != ''">
 				AND a.dept_id = #{deptId}
@@ -72,7 +72,7 @@
 				AND a.name like CONCAT('%', #{name} ,'%')
 			</if>
 			<if test="roleId != null and roleId != ''">
-				AND a.id in (select b.id from func_user_role b where b.id = #{roleId}) 
+				AND a.id in (select b.user_id from func_user_role b where b.role_id = #{roleId}) 
 			</if>
 			<if test="account != null and account != ''">
 				AND a.account like CONCAT('%', #{account} ,'%')
