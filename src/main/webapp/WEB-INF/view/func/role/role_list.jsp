@@ -74,13 +74,13 @@ function _toAddRole() {
 }
 //删除
 function _toDeleteRole(roleId){
-	layer.confirm("是否删除此数据?",{icon: 6,title:'提示信息'},function(index){
+	layer.confirm("是否删除此数据?",{icon: 3,title:'提示信息'},function(index){
 		var url = '${ctx}/func/role/do_delete_role';
 		param = {"id" : roleId};
 		$.post(url, param, function(data){
 			data = eval("(" + data + ")");
 			if(data.success){
-				layer.alert(data.msg,{title:'提示信息'},function(index){
+				layer.alert(data.msg,{icon: 6, btn:['确定'], title:'提示信息'},function(index){
 					layer.close(index);
 					location.href = '${ctx}/func/role/to_role_list';
 				});

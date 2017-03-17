@@ -147,9 +147,9 @@ public class RoleController {
 			if(result > 0){
 				msg.setSuccess(true);
 				if("0".equals(roleModel.getState())){
-					msg.setMsg("操作成功!");
+					msg.setMsg("启用成功!");
 				}else if("1".equals(roleModel.getState())){
-					msg.setMsg("操作成功!");
+					msg.setMsg("禁用成功!");
 				}
 			}
 		} catch (Exception e) {
