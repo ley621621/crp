@@ -72,10 +72,10 @@ function _toAddMenu() {
 function updateState(state,menuId){
 	var confirm = "";
 	if(state == 0){
-		confirm = '您是否禁用此菜单?';
+		confirm = '您是否启用此菜单?';
 	}
 	if(state == 1){
-		confirm = '您是否启用此菜单';
+		confirm = '您是否禁用此菜单';
 	}
 	layer.confirm(confirm, {icon: 3, btn: ['是', '否'],title:'提示信息'}, function(index){
 	var url = '${ctx}/func/menu/update_state';

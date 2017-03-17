@@ -94,10 +94,10 @@ function _toDeleteRole(roleId){
 function updateState(state,roleId){
 	var confirm = "";
 	if(state == 0){
-		confirm = '您是否禁用此角色?';
+		confirm = '您是否启用此角色?';
 	}
 	if(state == 1){
-		confirm = '您是否启用此角色?';
+		confirm = '您是否禁用此角色?';
 	}
 	layer.confirm(confirm, {icon: 3, btn: ['是', '否'], title:'提示信息'}, function(index){
 		var url = '${ctx}/func/role/update_state';
