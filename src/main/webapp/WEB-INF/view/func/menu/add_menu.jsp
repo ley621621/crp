@@ -31,8 +31,6 @@ label {
 }
 </style>
 
-
-
 </head>
 
 <body>
@@ -54,14 +52,14 @@ label {
 											<div class="row form-group">
 												<label class="col-lg-2 form_name"><span class="red">*</span>菜单名称&nbsp;&nbsp;</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="name" />
+													<input type="text" class="form-control" name="name" id="name"/>
 												</div>
 												<div class="clear"></div>
 											</div>
 											<div class="row form-group">
 												<label class="col-lg-2 form_name"><span class="red">*</span>菜单编号&nbsp;&nbsp;</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="code" />
+													<input type="text" class="form-control" name="code" id="code"/>
 													<input type="hidden" class="form-control" name="state" value="0" />
 												</div>
 												<div class="clear"></div>
@@ -70,14 +68,14 @@ label {
 											<div class="row form-group">
 												<label class="col-lg-2 form_name"><span class="red">*</span>菜单地址&nbsp;&nbsp;</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="url" />
+													<input type="text" class="form-control" name="url" id="url"/>
 												</div>
 												<div class="clear"></div>
 											</div>
 											<div class="row form-group">
 												<label class="col-lg-2 form_name"><span class="red">*</span>排序值&nbsp;&nbsp;</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="seq" />
+													<input type="text" class="form-control" name="seq" id="seq"/>
 												</div>
 												<div class="clear"></div>
 											</div>

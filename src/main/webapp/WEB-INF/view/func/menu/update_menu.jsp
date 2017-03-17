@@ -21,6 +21,38 @@
 <script src="${ctx }/static/lib/layer/layer.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function _doUpdateMenu() {
+		//验证菜单名称不能为空
+		var name = $("input[name='name']").val();
+		if(name == '') {
+			layer.alert("菜单名称不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证菜单编号不能为空
+		var code = $("input[name='code']").val();
+		if(code == '') {
+			layer.alert("菜单编号不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证菜单地址不能为空
+		var url = $("input[name='url']").val();
+		if(url == '') {
+			layer.alert("菜单地址不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证排序值不能为空
+		var seq = $("input[name='seq']").val();
+		if(seq == '') {
+			layer.alert("排序值不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
 		var url = "${ctx}/func/menu/do_update_menu";
 		var param = $("#menuForm").serialize();
 		$.post(url, param, function(data) {

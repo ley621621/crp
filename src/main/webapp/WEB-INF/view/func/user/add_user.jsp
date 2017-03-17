@@ -35,6 +35,30 @@ label {
 
 <script type="text/javascript">
 	function _doAddUser() {
+		//验证中心不能为空
+		var corpId = $("select[name='corpId']").val();
+		if(corpId == '') {
+			layer.alert("请选择一个中心", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证角色不能为空
+		var roleList = $("select[name='roleList']").val();
+		if(roleList == null) {
+			layer.alert("角色不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证账号不能为空
+		var account = $("input[name='account']").val();
+		if(account == '') {
+			layer.alert("账号不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
 		var url = "${ctx}/func/user/do_add_user";
 		var param = $("#userForm").serialize();
 		$.post(url, param, function(data) {

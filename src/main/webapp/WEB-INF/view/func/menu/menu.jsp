@@ -28,6 +28,38 @@
 	}
 	
 	function _addMenu(){
+		//验证菜单名称不能为空
+		var name = $("#add_iframe").contents().find("#addMenuForm").find("#name").val();
+		if(name == '') {
+			layer.alert("菜单名称不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证菜单编号不能为空
+		var code = $("#add_iframe").contents().find("#addMenuForm").find("#code").val();
+		if(code == '') {
+			layer.alert("菜单编号不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证菜单地址不能为空
+		var url = $("#add_iframe").contents().find("#addMenuForm").find("#url").val();
+		if(url == '') {
+			layer.alert("菜单地址不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
+		//验证排序值不能为空
+		var seq = $("#add_iframe").contents().find("#addMenuForm").find("#seq").val();
+		if(seq == '') {
+			layer.alert("排序值不能为空", {icon: 6}, function(index){
+				layer.close(index);
+			});
+			return;
+		}
 		var url = $("#add_iframe").contents().find("#addMenuForm").prop("action");
 		var param = $("#add_iframe").contents().find("#addMenuForm").serialize();
 		$.post(url, param, function(data){
