@@ -34,7 +34,7 @@
 			data = eval("(" + data + ")");
 			if(data.success) {
 				layer.alert(data.msg, {icon: 6, btn:['确定'], title:'提示信息'}, function(index){
-					location.href = "${ctx }/func/menu/to_menu"
+					location.href = "${ctx }/func/menu/to_menu_list"
 				});
 			} else {
 				layer.alert(data.msg, {icon: 6, btn:['确定'], title:'提示信息'});

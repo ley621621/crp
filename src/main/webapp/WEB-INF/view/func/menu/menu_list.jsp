@@ -104,9 +104,9 @@ function _doDeleteMenu(menu_id){
 		$.post(url, param, function(data){
 			data = eval("(" + data + ")");
 			if(data.success){
-				layer.alert(data.msg,{title:'提示信息'},function(index){
-					layer.close(index);
-					location.href = '${ctx}/func/menu/to_menu_list';
+				layer.alert(data.msg, {icon: 6, btn:['确定'], title:'提示信息'}, function(index){
+				layer.close(index);
+				window.location.reload();
 				});
 			}else{
 				layer.alert(data.msg,{title:'提示信息'});
