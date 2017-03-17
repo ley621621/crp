@@ -60,4 +60,6 @@ public interface MenuService extends BaseService<MenuModel, Long> {
 	 */
 	public int updateMenuState(String state, Long menuId);
 
+	public int deleteMenu(MenuModel menuModel);
+
 }

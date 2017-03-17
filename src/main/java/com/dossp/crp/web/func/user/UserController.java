@@ -251,7 +251,6 @@ public class UserController {
 		JsonMsg ret = new JsonMsg("操作失败!");
 		try {
 			int flag = userService.deleteUser(userModel);
-			System.out.println(flag);
 			if (flag > 0) {
 				ret.setSuccess(true);
 				ret.setMsg("操作成功!");

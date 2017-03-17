@@ -174,7 +174,7 @@ public class MenuController {
 	public JsonMsg doDeleteMenu(MenuModel menuModel){
 		JsonMsg ret = new JsonMsg("操作失败!");
 		try{
-			int flag = menuService.delete(menuModel);
+			int flag = menuService.deleteMenu(menuModel);
 			if(flag > 0){
 				ret.setSuccess(true);
 				ret.setMsg("操作成功!");

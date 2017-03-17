@@ -192,4 +192,22 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuModel, Long> implements
 		return menuMapper.updateByPrimaryKey(menu);
 	}
 
+	@Transactional
+	@Override
+	public int deleteMenu(MenuModel menuModel) {
+		int result = 0;
+		int ret = menuMapper.delete(menuModel);
+		result = ret;
+		if(ret > 0){
+			Example example = new Example(RoleMenuModel.class);
+			Criteria criteria = example.createCriteria();
+			criteria.andEqualTo("menuId", menuModel.getId());
+			List<RoleMenuModel> list = roleMenuMapper.selectByExample(example);
+			if(list != null && list.size() != 0){
+				result = roleMenuMapper.deleteByExample(example);
+			}
+		}
+		return result;
+	}
+
 }
