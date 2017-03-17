@@ -134,6 +134,7 @@
 			func_menu m ON rm.menu_id = m.id
 		WHERE
 		m.state = '0'
+		AND r.state = '0'
 		AND u.id = #{_parameter}
 		ORDER BY m.seq
 	</select>
