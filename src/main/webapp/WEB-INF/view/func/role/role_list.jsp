@@ -100,10 +100,10 @@ function updateState(state,roleId){
 		confirm = '您是否启用此角色?';
 	}
 	layer.confirm(confirm, {icon: 3, btn: ['是', '否'], title:'提示信息'}, function(index){
-		var url = '${ctx}/func/role/do_update_state';
+		var url = '${ctx}/func/role/update_state';
 		param = {
 			"state":state,
-			"roleId":roleId
+			"id":roleId
 		};
 		$.post(url, param, function(data){
 			data = eval("(" + data + ")");

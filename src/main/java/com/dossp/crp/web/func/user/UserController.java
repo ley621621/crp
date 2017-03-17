@@ -198,7 +198,7 @@ public class UserController {
 	@RequestMapping("update_state")
 	@ResponseBody
 	public JsonMsg updateState(UserModel userModel){
-		JsonMsg msg = new JsonMsg("");
+		JsonMsg msg = new JsonMsg("操作失败!");
 		try {
 			int result = userService.update(userModel);
 			if(result > 0){

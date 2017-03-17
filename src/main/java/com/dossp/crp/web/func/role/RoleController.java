@@ -141,7 +141,7 @@ public class RoleController {
 	@RequestMapping("update_state")
 	@ResponseBody
 	public JsonMsg updateState(RoleModel roleModel){
-		JsonMsg msg = new JsonMsg("");
+		JsonMsg msg = new JsonMsg("操作失败!");
 		try {
 			int result = roleService.update(roleModel);
 			if(result > 0){
