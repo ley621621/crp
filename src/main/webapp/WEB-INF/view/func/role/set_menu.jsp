@@ -26,7 +26,8 @@ function _doSetMenu() {
 		if(data.success) {
 			layer.alert(data.msg, {icon: 6, btn:['确定'], title:'提示'}, function(index){
 				layer.close(index);
-				parent.location.reload(); 
+				//parent.location.reload(); 
+				window.location.href = "${ctx}/func/role/to_role_list"
 			});
 		} else {
 			layer.alert(data.msg, {icon: 6, btn:['确定'], title:'提示'});
