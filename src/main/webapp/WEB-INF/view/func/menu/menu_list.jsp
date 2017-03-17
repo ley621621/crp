@@ -78,10 +78,10 @@ function updateState(state,menuId){
 		confirm = '您是否启用此菜单';
 	}
 	layer.confirm(confirm, {icon: 3, btn: ['是', '否'],title:'提示信息'}, function(index){
-	var url = '${ctx}/func/menu/do_update_state';
+	var url = '${ctx}/func/menu/update_state';
 	param = {
 		"state":state,
-		"menuId":menuId
+		"id":menuId
 	};
 	$.post(url, param, function(data){
 		data = eval("(" + data + ")");
@@ -100,7 +100,7 @@ function updateState(state,menuId){
 function _doDeleteMenu(menu_id){
 	layer.confirm("是否删除此数据?",{icon: 6,title:'提示信息'},function(index){
 		var url = '${ctx}/func/menu/do_delete_menu';
-		param = {"menuId" : menu_id};
+		param = {"id" : menu_id};
 		$.post(url, param, function(data){
 			data = eval("(" + data + ")");
 			if(data.success){
@@ -232,13 +232,13 @@ label {
 															<a href="javascript:;" onclick="_doDeleteMenu(${menu.id})" class="link2 cu" title="删除">
 																删除
 															</a>
-															<c:if test="${menu.state == 1}">
+															<c:if test="${menu.state eq '1'}">
 																&nbsp;
 																<a href="javascript:;" onclick="updateState(0,'${menu.id }')" class="link2 cu">
 																	启用
 																</a>
                    											</c:if>
-                   											<c:if test="${menu.state == 0}">
+                   											<c:if test="${menu.state eq '0'}">
                    												&nbsp;
 																<a href="javascript:;" onclick="updateState(1,'${menu.id }')" class="link2 cu">
 																	禁用

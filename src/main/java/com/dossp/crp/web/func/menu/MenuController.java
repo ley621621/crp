@@ -153,9 +153,9 @@ public class MenuController {
 			if(result > 0){
 				msg.setSuccess(true);
 				if("0".equals(menuModel.getState())){
-					msg.setMsg("操作成功!");
+					msg.setMsg("启用成功!");
 				}else if("1".equals(menuModel.getState())){
-					msg.setMsg("操作成功!");
+					msg.setMsg("禁用成功!");
 				}
 			}
 		} catch (Exception e) {
@@ -164,5 +164,27 @@ public class MenuController {
 		return msg;
 	}
 
+	/**
+	 * 删除菜单
+	 * @param menuModel
+	 * @return
+	 */
+	@RequestMapping("do_delete_menu")
+	@ResponseBody
+	public JsonMsg doDeleteMenu(MenuModel menuModel){
+		JsonMsg ret = new JsonMsg("操作失败!");
+		try{
+			int flag = menuService.delete(menuModel);
+			if(flag > 0){
+				ret.setSuccess(true);
+				ret.setMsg("操作成功!");
+			}
+		}catch(Exception e){
+			ret.setSuccess(false);
+			ret.setMsg("操作失败!");
+			log.error("操作失败!", e);
+		}
+		return ret;
+	}
 
 }
