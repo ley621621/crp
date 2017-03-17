@@ -76,7 +76,7 @@ function _toAddRole() {
 function _toDeleteRole(roleId){
 	layer.confirm("是否删除此数据?",{icon: 6,title:'提示信息'},function(index){
 		var url = '${ctx}/func/role/do_delete_role';
-		param = {"roleId" : roleId};
+		param = {"id" : roleId};
 		$.post(url, param, function(data){
 			data = eval("(" + data + ")");
 			if(data.success){

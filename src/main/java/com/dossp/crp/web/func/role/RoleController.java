@@ -176,6 +176,28 @@ public class RoleController {
 		return "func/role/set_menu";
 	}
 	/**
+	 * 删除角色
+	 * @param menuModel
+	 * @return
+	 */
+	@RequestMapping("do_delete_role")
+	@ResponseBody
+	public JsonMsg doDeleteMenu(RoleModel roleModel){
+		JsonMsg msg = new JsonMsg("操作失败!");
+		try{
+			int result = roleService.delete(roleModel);
+			if(result > 0){
+				msg.setSuccess(true);
+				msg.setMsg("操作成功!");
+			}
+		}catch(Exception e){
+			msg.setSuccess(false);
+			msg.setMsg("操作失败!");
+			log.error("操作失败!", e);
+		}
+		return msg;
+	}
+	/**
 	 * 保存权限
 	 * @param request
 	 * @return
