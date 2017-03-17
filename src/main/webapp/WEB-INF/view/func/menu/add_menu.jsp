@@ -41,7 +41,7 @@ label {
 		<div class="row">
 			<div class="col-lg-12">
 				<form id="addMenuForm" action="${ctx}/func/menu/do_add_menu" method="post">
-					<input type="hidden" name="pkParentMenu" value="${pId }">
+					<input type="hidden" name="parentId" value="${pId }">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="row">
